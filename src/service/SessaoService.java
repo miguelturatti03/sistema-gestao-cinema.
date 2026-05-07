@@ -1,14 +1,19 @@
-package model;
+package service;
+import model.Sessao;
+import repository.SessaoRepository;
 
-public class Sessao {
-    public int id;
-    public int capacidadeCinema;
-    public int publicoAtual;
-    
-    // Construtor simples
-    public Sessao(int id, int capacidade, int atual) {
-        this.id = id;
-        this.capacidadeCinema = capacidade;
-        this.publicoAtual = atual;
+public class SessaoService {
+    private SessaoRepository repository = new SessaoRepository();
+
+    public void registrarVenda(int idSessao, int novosIngressos) throws Exception {
+        Sessao sessao = repository.buscarPorId(idSessao);
+
+        // REGRA DE NEGÓCIO: Não pode vender mais que a capacidade
+        if (sessao.publicoAtual + novosIngressos > sessao.capacidadeCinema) {
+            throw new Exception("ERRO: Capacidade da sala excedida!");
+        }
+
+        sessao.publicoAtual += novosIngressos;
+        repository.salvar(sessao);
     }
 }
