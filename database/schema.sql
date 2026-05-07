@@ -9,6 +9,8 @@ CREATE TABLE IF NOT EXISTS filmes (
     titulo TEXT NOT NULL,
     duracao INTEGER NOT NULL,
     genero TEXT
+    diretor TEXT,
+    elenco TEXT
 );
 
 CREATE TABLE IF NOT EXISTS sessoes (
