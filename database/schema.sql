@@ -1,0 +1,3 @@
+CREATE TABLE Cinema;
+CREATE TABLE Filme;
+CREATE TABLE Sessao;
