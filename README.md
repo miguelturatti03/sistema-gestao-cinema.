@@ -1,3 +1,7 @@
+useCaseDiagram
+  Actor Admin
+  Admin --> (Cadastrar Filme)
+  
 # Sistema de Gestão de Cinema
 
 ## 📋 Requisitos
